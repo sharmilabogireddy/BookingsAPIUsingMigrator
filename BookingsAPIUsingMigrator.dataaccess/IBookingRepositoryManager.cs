@@ -6,5 +6,6 @@ namespace BookingsAPIUsingMigrator.dataaccess
     public interface IBookingRepositoryManager : IDisposable
     {
         IBookingRepository BookingRepository { get; }
+        Task Save();
     }
 }

@@ -29,6 +29,7 @@ namespace BookingsAPIUsingMigrator.dataaccess
             }
         }
 
+        public async Task Save() => await _bookingRepositoryContext.SaveChangesAsync();
         protected virtual void Dispose(bool disposing)
         {
             if (!disposed)
