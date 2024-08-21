@@ -10,5 +10,6 @@ namespace BookingsAPIUsingMigrator.dataaccess.Repositories.Interfaces
     public interface IBookingRepository : IRepositoryBase<Booking>
     {
         Task<Booking?> FindById(int id);
+        Task<int> GetCountByBookingTime(string bookingTime);
     }
 }

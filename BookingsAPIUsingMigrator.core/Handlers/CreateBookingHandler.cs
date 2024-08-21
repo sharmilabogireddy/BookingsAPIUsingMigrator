@@ -50,12 +50,12 @@ namespace BookingsAPIUsingMigrator.core.Handlers
             }
             if (string.IsNullOrEmpty(request.bookingTime))
             {
-                throw new System.ComponentModel.DataAnnotations.ValidationException(ConstantStrings.BOOKING_TIME_IVALID);
+                throw new System.ComponentModel.DataAnnotations.ValidationException(ConstantStrings.BOOKING_TIME_INVALID);
             }
 
             if (!TimeSpan.TryParse(request.bookingTime, out TimeSpan bookingTimeObject))
             {
-                throw new System.ComponentModel.DataAnnotations.ValidationException(ConstantStrings.BOOKING_TIME_IVALID);
+                throw new System.ComponentModel.DataAnnotations.ValidationException(ConstantStrings.BOOKING_TIME_INVALID);
 
             }
 
@@ -72,15 +72,16 @@ namespace BookingsAPIUsingMigrator.core.Handlers
                 count = defaultCount;
             }
 
+            int bookingTimeCount = await _bookingRepositoryManager.BookingRepository.GetCountByBookingTime(request.bookingTime);
             //Check for max simultaneous bookings.
-            if (count < _maxBookingCapacity)
+            if (count < _maxBookingCapacity && bookingTimeCount != _maxBookingCapacity)
             {
                 count++;
                 currentBookings[bookingTimeObject.Hours] = count;
             }
             else
             {
-                throw new System.ComponentModel.DataAnnotations.ValidationException(ConstantStrings.BOOKING_TIME_IVALID);
+                throw new System.ComponentModel.DataAnnotations.ValidationException(ConstantStrings.BOOKING_TIME_INVALID);
             }
 
             return new Booking

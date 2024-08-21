@@ -66,17 +66,23 @@ namespace BookingsAPIUsingMigrator.api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<BookingResponse>> CreateBooking([FromBody] BookingRequestModel requestModel)
         {
-            var result = await _mediator.Send(new CreateBookingRequest()
+            try
             {
-                name = requestModel.name,
-                bookingTime = requestModel.bookingTime
-            });
-
-            BookingResponse response = new BookingResponse()
-            {
-                bookingId = Guid.NewGuid()
-            };
-            return Ok(response);
+                var result = await _mediator.Send(new CreateBookingRequest()
+                {
+                    name = requestModel.name,
+                    bookingTime = requestModel.bookingTime
+                });
+                BookingResponse response = new BookingResponse()
+                {
+                    bookingId = Guid.NewGuid()
+                };
+                return Ok(response);
+            }
+            catch(Exception ex) {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
         /// <summary>
