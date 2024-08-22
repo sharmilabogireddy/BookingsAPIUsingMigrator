@@ -134,5 +134,24 @@ namespace BookingsAPIUsingMigrator.api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        /// <summary>
+        /// Deletes an existing Booking
+        /// </summary>
+        /// <param name="id">The ID of the Booking to delete</param>
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<BookingsResponse>> RemoveBooking(int id)
+        {
+            var deletedBooking = await _mediator.Send(
+                new RemoveBookingRequest
+                {
+                    id = id
+                });
+            return deletedBooking == null ? NotFound() : Ok(_mapper.Map<BookingsResponse>(deletedBooking));
+
+        }
     }
 }

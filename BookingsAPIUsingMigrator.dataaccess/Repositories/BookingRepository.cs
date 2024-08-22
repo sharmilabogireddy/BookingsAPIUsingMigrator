@@ -1,6 +1,7 @@
 ﻿using BookingsAPIUsingMigrator.dataaccess.Data.Contexts;
 using BookingsAPIUsingMigrator.dataaccess.Entities;
 using BookingsAPIUsingMigrator.dataaccess.Repositories.Interfaces;
+using BookingsAPIUsingMigrator.shared.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,5 +25,6 @@ namespace BookingsAPIUsingMigrator.dataaccess.Repositories
         {
             return _repositoryContext.Bookings.Count(e => e.bookingTime == bookingTime);
         }
+
     }
 }
