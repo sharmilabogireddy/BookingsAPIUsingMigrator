@@ -105,5 +105,34 @@ namespace BookingsAPIUsingMigrator.api.Controllers
 
             return Ok(_mapper.Map<BookingsResponse>(formDto));
         }
+
+        /// <summary>
+        /// Update an existing Booking
+        /// </summary>
+        /// <param name="id">The ID of the Booking</param>
+        /// <param name="form">The data describing the Booking details to update</param>
+        /// <returns>The updated Booking object</returns>
+        [HttpPut]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<BookingsResponse>> UpdateBooking([FromBody] UpdateBookingRequest requestModel)
+        {
+            try
+            {
+                var bookingDto = await _mediator.Send(new UpdateBookingRequest()
+                {
+                    Id = requestModel.Id,
+                    name = requestModel.name,
+                    bookingTime = requestModel.bookingTime
+                });
+
+                return Ok(_mapper.Map<BookingsResponse>(bookingDto));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
