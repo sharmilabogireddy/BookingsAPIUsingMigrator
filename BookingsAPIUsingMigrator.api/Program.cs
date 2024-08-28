@@ -35,11 +35,15 @@ builder.Services.AddSwaggerGen();
 // Add Cors enabled
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("GLOBAL_CORS_POLICY",
+    /*options.AddPolicy("GLOBAL_CORS_POLICY",
         builder => builder.SetIsOriginAllowed(origin => true)
             .AllowAnyOrigin()
             .AllowAnyMethod()
-            .AllowAnyHeader());
+            .AllowAnyHeader());*/
+    options.AddPolicy("AllowAngularApp",
+            builder => builder.WithOrigins("http://localhost:4300") // Replace with your Angular app's URL
+                              .AllowAnyMethod()
+                              .AllowAnyHeader());
 });
 
 var app = builder.Build();
