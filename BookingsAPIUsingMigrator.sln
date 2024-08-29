@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingsAPIUsingMigrator.mi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingsAPIUsingMigrator.core", "BookingsAPIUsingMigrator.core\BookingsAPIUsingMigrator.core.csproj", "{DB7A28EA-FFF5-4DF5-8429-1EC88B0FD945}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingsAPIUsingMigrator.shared", "BookingsAPIUsingMigrator.shared\BookingsAPIUsingMigrator.shared.csproj", "{BAC6D470-CB4E-4A46-B9CF-39BBE11A553E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingsAPIUsingMigrator.shared", "BookingsAPIUsingMigrator.shared\BookingsAPIUsingMigrator.shared.csproj", "{BAC6D470-CB4E-4A46-B9CF-39BBE11A553E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingsAPIUsingMigrator.test", "BookingsAPIUsingMigrator.test\BookingsAPIUsingMigrator.test.csproj", "{9B8BE0BD-C8AB-40B4-A479-CD41663EBD58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{BAC6D470-CB4E-4A46-B9CF-39BBE11A553E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAC6D470-CB4E-4A46-B9CF-39BBE11A553E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAC6D470-CB4E-4A46-B9CF-39BBE11A553E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B8BE0BD-C8AB-40B4-A479-CD41663EBD58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B8BE0BD-C8AB-40B4-A479-CD41663EBD58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B8BE0BD-C8AB-40B4-A479-CD41663EBD58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B8BE0BD-C8AB-40B4-A479-CD41663EBD58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

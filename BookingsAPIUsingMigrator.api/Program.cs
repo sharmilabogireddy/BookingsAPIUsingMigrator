@@ -67,6 +67,8 @@ if (!app.Environment.EnvironmentName.Equals("Production"))
 
 app.UseHttpsRedirection();
 
+app.UseCors("AllowAngularApp");
+
 app.UseAuthorization();
 
 app.MapControllers();

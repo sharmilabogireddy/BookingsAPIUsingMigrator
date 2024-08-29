@@ -46,7 +46,7 @@ namespace BookingsAPIUsingMigrator.core.Handlers
         {
             if (string.IsNullOrEmpty(request.name))
             {
-                throw new System.ComponentModel.DataAnnotations.ValidationException(ConstantStrings.NAME_IVALID);
+                throw new System.ComponentModel.DataAnnotations.ValidationException(ConstantStrings.NAME_INVALID);
             }
             if (string.IsNullOrEmpty(request.bookingTime))
             {
